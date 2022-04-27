@@ -34,7 +34,7 @@ session_start();
         include 'db/connect_db.php';
 
         $uid = $_SESSION["uid"];
-        $sql = "SELECT * FROM Property WHERE userId='$uid'";
+        $sql = "SELECT * FROM Property WHERE sellerId='$uid'";
         $result = mysqli_query($conn, $sql);
 
         /* Fetch properties associated with this user */

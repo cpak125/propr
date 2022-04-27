@@ -28,7 +28,7 @@ if ($conn->query($sql) === TRUE) {
 // Create Property table
 $sql = "CREATE TABLE IF NOT EXISTS Property (
             propId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-            userId INT(6),
+            sellerId INT(6),
             city_state VARCHAR(30),
             street VARCHAR(30),
             zip VARCHAR(30),
