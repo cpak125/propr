@@ -18,7 +18,12 @@
         $type = isset($_POST['type']) ? $_POST['type'] : '';
         $email = isset($_POST['email']) ? $_POST['email'] : '';
         $password = isset($_POST['password']) ? $_POST['password'] : '';
-        $confirmPass = isset($_POST['confirm-pass']) ? $_POST['confirm-pass'] : '';
+        $confirmPass = isset($_POST['confirmPass']) ? $_POST['confirmPass'] : '';
+        $name = isset($_POST['name']) ? $_POST['name'] : '';
+        $cardNum = isset($_POST['cardNum']) ? $_POST['cardNum'] : '';
+        $cardExp = isset($_POST['cardExp']) ? $_POST['cardExp'] : '';
+        $address = isset($_POST['address']) ? $_POST['address'] : '';
+        $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
     }
     $isValid = true;
     $errors = [];
@@ -64,6 +69,31 @@
         $isValid = false;
         $errors[] = "Passwords do not match.";
     }
+
+    if ($name == "") {
+        $isValid = false;
+        $errors[] = "Name on Card field is empty.";
+    }
+
+    if ($cardNum == "") {
+        $isValid = false;
+        $errors[] = "Card Number field is empty.";
+    }
+    if ($cardExp == "") {
+        $isValid = false;
+        $errors[] = "Card Exp. Date field is empty.";
+    }
+
+    if ($address == "") {
+        $isValid = false;
+        $errors[] = "Address field is empty.";
+    }
+
+    if ($phone == "") {
+        $isValid = false;
+        $errors[] = "Phone Number field is empty.";
+    }
+
 
     if (!$isValid) {
         echo "<p>Please fix the following errors:<ul>";

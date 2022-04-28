@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="form">
+    <div id="login-form">
         <form action="login_submit.php" method="get">
             <input type="text" name="email" placeholder="Enter your email"><br>
             <input type="password" name="password" placeholder="Enter your password"><br>

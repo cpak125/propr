@@ -21,7 +21,7 @@
         $city_state = isset($_POST['city_state']) ? $_POST['city_state'] : '';
         $street = isset($_POST['street']) ? $_POST['street'] : '';
         $zip = isset($_POST['zip']) ? $_POST['zip'] : '';
-        $price = isset($_POST['price']) ? $_POST['price'] : '';
+        $price = isset($_POST['price']) ?  str_replace(',', '', $_POST['price']) : '';
         $type = isset($_POST['type']) ? $_POST['type'] : '';
         $squareFt = isset($_POST['squareFt']) ? $_POST['squareFt'] : '';
         $bed = isset($_POST['bed']) ? $_POST['bed'] : '';

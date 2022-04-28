@@ -24,8 +24,8 @@ session_start();
     ?>
     <div class='navbar'>
         <div>Welcome Seller, <?= $_SESSION["firstname"] ?></div>
-        <div><a href="seller.php">Dashboard </a></div>
         <div><a href="about.php">About Us </a></div>
+        <div><a href="seller.php">Dashboard </a></div>
         <div><a href='logout.php'>Logout</a></div>
     </div>
 
@@ -48,7 +48,7 @@ session_start();
                         <img src="img/<?= $row["imgURL"] ?>" alt="property photo">
                         <div class="cards-container">
                             <p><span class="bold">City, State: </span><?= $row["city_state"] ?></p>
-                            <p><span class="bold">Price: </span><?= $row["price"] ?></p>
+                            <p><span class="bold">Price: </span>$<?= number_format($row["price"]) ?></p>
                             <p><span class="bold">Bedrooms: </span><?= $row["bed"] ?></p>
                             <p><span class="bold">Bathrooms:</span> <?= $row["bath"] ?></p>
                         </div>
@@ -75,41 +75,43 @@ session_start();
             <span><i class=" close fa-solid fa-circle-xmark" onclick="closeModal('add-prop')"></i></span>
 
             <form class="prop-form" action="add_property.php" method="post" enctype="multipart/form-data">
-                <div>
-                    <label for="street">Street Address</label>
-                    <input type="text" id="street" name="street" id="location" placeholder="Enter the City and State"><br>
-                </div>
-                <div>
-                    <label for="city_state">City, State</label>
-                    <input type="text" id="city_state" name="city_state" placeholder="Enter the City and State"><br>
-                </div>
-                <div>
-                    <label for="zip">Zip Code</label>
-                    <input type="text" id="zip" name="zip" placeholder="Enter the Zip Code"><br>
-                </div>
-                <div>
-                    <label for="price">Listing Price</label>
-                    $<input type="text" id="price" name="price" placeholder="Enter the listing price">
-                </div>
-                <div>
-                    <label for="type">Type (house, condo, etc)</label>
-                    <input type="text" id="type" name="type" placeholder="Enter the property type">
-                </div>
-                <div>
-                    <label for="squareFt">Total square feet</label>
-                    <input type="text" id="squareFt" name="squareFt" placeholder="Enter total square feet">
-                </div>
-                <div>
-                    <label for="bed">Total bedrooms</label>
-                    <input type="text" id="bed" name="bed" placeholder="Enter total bedrooms">
-                </div>
-                <div>
-                    <label for="bath">Total bathrooms</label>
-                    <input type="text" id="bath" name="bath" placeholder="Enter total bathrooms">
-                </div>
-                <div>
-                    <label for="imgURL">Upload image</label>
-                    <input type="file" id="imgURL" name="imgURL">
+                <div class="prop-content">
+                    <div>
+                        <label for="street">Street Address</label>
+                        <input type="text" id="street" name="street" id="location" placeholder="123 Miracle Lane"><br>
+                    </div>
+                    <div>
+                        <label for="city_state">City, State</label>
+                        <input type="text" id="city_state" name="city_state" placeholder="Atlanta, GA"><br>
+                    </div>
+                    <div>
+                        <label for="zip">Zip Code</label>
+                        <input type="text" id="zip" name="zip" placeholder="99999"><br>
+                    </div>
+                    <div>
+                        <label for="price">Listing Price</label>
+                        <div>$<input type="text" id="price" name="price" placeholder="200,000"></div>
+                    </div>
+                    <div>
+                        <label for="type">Property Type</label>
+                        <input type="text" id="type" name="type" placeholder="i.e. house, condo, apartment, town-house">
+                    </div>
+                    <div>
+                        <label for="squareFt">Total square feet</label>
+                        <div><input type="text" id="squareFt" name="squareFt" placeholder="2,000">sq. ft.</div>
+                    </div>
+                    <div>
+                        <label for="bed">Total bedrooms</label>
+                        <input type="text" id="bed" name="bed" placeholder="4">
+                    </div>
+                    <div>
+                        <label for="bath">Total bathrooms</label>
+                        <input type="text" id="bath" name="bath" placeholder="4">
+                    </div>
+                    <div>
+                        <label for="imgURL">Upload image</label>
+                        <input type="file" id="imgURL" name="imgURL">
+                    </div><br>
                 </div>
 
                 <div class="center">

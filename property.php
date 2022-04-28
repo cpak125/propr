@@ -17,17 +17,32 @@ session_start()
 </head>
 
 <body>
+    <?php
+    $minprice = $_SESSION["minprice"];
+    $maxprice = $_SESSION["maxprice"];
+    $beds = $_SESSION["beds"];
+    $baths = $_SESSION["baths"];
+    ?>
+
     <div class='navbar'>
-        <div>Welcome Seller, <?= $_SESSION["firstname"] ?></div>
-        <div><a href="seller.php">Dashboard </a></div>
+        <div>Welcome <?= ucfirst($_SESSION["type"]) ?>, <?= $_SESSION["firstname"] ?></div>
         <div><a href="about.php">About Us </a></div>
+        <?php if ($_SESSION["type"] == "buyer") { ?>
+            <div>
+                <a href='buyer.php?minprice=<?= $minprice ?>&maxprice=<?= $maxprice ?>&beds=<?= $beds ?>&baths=<?= $baths ?>&Submit=Search'>
+                    Dashboard</a>
+            </div>
+        <?php } else { ?>
+            <div><a href="<?= $_SESSION["type"] ?>.php">Dashboard </a></div>
+        <?php }
+        if ($_SESSION["type"] == "buyer") { ?>
+            <div><a href='wishlist.php'>Wishlist</a></div>
+        <?php } ?>
         <div><a href='logout.php'>Logout</a></div>
     </div>
 
     <?php
     include 'db/connect_db.php';
-
-    $uid = $_SESSION["uid"];
 
     if (isset($_GET["propId"])) {
 
@@ -42,71 +57,78 @@ session_start()
             echo "Error: " . $sql . "<br>" .  mysqli_error($conn);
         }
     }
-
+    mysqli_close($conn);
     ?>
 
     <div class="card">
         <img src="img/<?= $row["imgURL"] ?>" alt="property photo">
         <div class="card-container">
-            <h3><span class="bold">Listing Price:</span> $<?= $row["price"] ?> </h3>
+            <h3><span class="bold">Listing Price:</span> $<?= number_format($row["price"]) ?> </h3>
             <p><span class="bold">Address:</span><?= $row["street"] ?>, <?= $row["city_state"] ?>, <?= $row["zip"] ?> </p>
             <p><span class="bold">Bedrooms:</span><?= $row["bed"] ?> </p>
             <p><span class="bold">Bathrooms:</span><?= $row["bath"] ?> </p>
             <p><span class="bold">Total square ft:</span><?= $row["squareFt"] ?> </p>
 
-            <!-- For buyer dashboard, put a conditional(if it's seller then show this)-->
-            <input type="button" onclick="showModal('update-prop')" value="Edit"></input>
-            <a id="delete" onclick="return  confirm('Delete this property?')" href="delete.php?propId=<?= $row['propId'] ?>">
-                <button>Delete</button>
-            </a>
-        </div>
+            <!-- Only show these two buttons if the user is a seller -->
+            <?php if ($_SESSION["type"] == "seller") { ?>
+                <input class="form-btns green" type="button" onclick="showModal('update-prop')" value="Edit"></input>
+                <a onclick="return  confirm('Delete this property?')" href="delete.php?propId=<?= $row['propId'] ?>">
+                    <input class="form-btns red right" type="button" value="Delete"></input>
+                </a>
+            <?php } else if (!isset($_GET["wishable"])) { ?>
+                <div class="wish">
+                    <a onclick="return confirm('Add this to your wishlist?')" href="add_wish.php?propId=<?= $row['propId'] ?>">
+                        <input class="form-btns green " type="button" value="Wishlist"></input>
+                    </a>
+                </div>
+            <?php } ?>
 
+        </div>
     </div>
 
-    <!-- For buyer dashboard, put a conditional(if it's seller then show this)-->
     <div class="modal" id="update-prop">
         <div class="modal-content">
             <span><i class="close fa-solid fa-circle-xmark" onclick="closeModal('update-prop')"></i></span>
 
             <form class="prop-form" action="update.php?propId=<?= $propId ?>" method="post" enctype="multipart/form-data">
-                <div>
-                    <label for="street">Street Address</label>
-                    <input type="text" id="street" name="street" id="location" value="<?= $row["street"] ?>">
+                <div class="prop-content">
+                    <div>
+                        <label for="street">Street Address</label>
+                        <input type="text" id="street" name="street" id="location" value="<?= $row["street"] ?>">
+                    </div>
+                    <div>
+                        <label for="city_state">City, State</label>
+                        <input type="text" id="city_state" name="city_state" value="<?= $row["city_state"] ?>">
+                    </div>
+                    <div>
+                        <label for="zip">Zip Code</label>
+                        <input type="text" id="zip" name="zip" value="<?= $row["zip"] ?>">
+                    </div>
+                    <div>
+                        <label for="price">Listing Price </label>
+                        <span>$<input type="text" id="price" name="price" value="<?= $row["price"] ?>"><span>
+                    </div>
+                    <div>
+                        <label for="type">Type (house, condo, etc) </label>
+                        <input type="text" id="type" name="type" value="<?= $row["type"] ?>">
+                    </div>
+                    <div>
+                        <label for="squareFt">Total square feet</label>
+                        <input type="text" id="squareFt" name="squareFt" value="<?= $row["squareFt"] ?>">
+                    </div>
+                    <div>
+                        <label for="bed">Total bedrooms</label>
+                        <input type="text" id="bed" name="bed" value="<?= $row["bed"] ?>">
+                    </div>
+                    <div>
+                        <label for="bath">Total bathrooms</label>
+                        <input type="text" id="bath" name="bath" value="<?= $row["bath"] ?>">
+                    </div>
+                    <div>
+                        <label for="imgURL">Upload image</label>
+                        <input type="file" id="imgURL" name="imgURL">
+                    </div><br>
                 </div>
-                <div>
-                    <label for="city_state">City, State</label>
-                    <input type="text" id="city_state" name="city_state" value="<?= $row["city_state"] ?>">
-                </div>
-                <div>
-                    <label for="zip">Zip Code</label>
-                    <input type="text" id="zip" name="zip" value="<?= $row["zip"] ?>">
-                </div>
-                <div>
-                    <label for="price">Listing Price </label>
-                    <span>$<input type="text" id="price" name="price" value="<?= $row["price"] ?>"><span>
-                </div>
-                <div>
-                    <label for="type">Type (house, condo, etc) </label>
-                    <input type="text" id="type" name="type" value="<?= $row["type"] ?>">
-                </div>
-                <div>
-                    <label for="squareFt">Total square feet</label>
-                    <input type="text" id="squareFt" name="squareFt" value="<?= $row["squareFt"] ?>">
-                </div>
-                <div>
-                    <label for="bed">Total bedrooms</label>
-                    <input type="text" id="bed" name="bed" value="<?= $row["bed"] ?>">
-                </div>
-                <div>
-                    <label for="bath">Total bathrooms</label>
-                    <input type="text" id="bath" name="bath" value="<?= $row["bath"] ?>">
-                </div>
-                <div>
-                    <label for="imgURL">Upload image</label>
-                    <input type="file" id="imgURL" name="imgURL">
-                </div>
-
-                <!--  -->
 
                 <div class="center">
                     <input class="form-btns green" name="Submit" type="submit" value="Update">
@@ -121,8 +143,6 @@ session_start()
     <script>
         <?php include 'main.js' ?>
     </script>
-
-    <?php mysqli_close($conn); ?>
 </body>
 
 </html>

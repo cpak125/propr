@@ -18,7 +18,7 @@ body {
     background-color: white;
 }
 
-.form {
+#login-form {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 30%;
     margin-top: 4rem;
@@ -33,15 +33,15 @@ body {
     color: cadetblue;
 }
 
-.form form {
+#login-form form {
     padding-top: 2rem;
 }
 
-.form p {
+#login-form p {
     font-size: medium;
 }
 
-.form input {
+#login-form input {
     background: #f2f2f2;
     width: 70%;
     border: 0;
@@ -51,11 +51,11 @@ body {
     font-size: medium;
 }
 
-.form input[type="submit"] {
+#login-form input[type="submit"] {
     cursor: pointer;
     font-size: medium;
     background-color: lightseagreen;
-    width: 100%;
+    width: 70%;
 }
 
 #prop-container {
@@ -124,23 +124,24 @@ body {
     padding: 20px;
     border: 1px solid #888;
     width: 70%;
-    height: 80%;
+    height: auto;
 }
 
 .prop-form {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    color: white;
+    width: 80%;
     height: 100%;
-    padding-left: 12rem;
+    padding-left: 5.5rem;
+    color: white;
 }
 
 .prop-form input[type="text"],
 input[type="file"] {
-    font-size: 16px;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: medium;
+    width: 75%;
 }
 
 .prop-form label {
@@ -149,6 +150,17 @@ input[type="file"] {
 }
 
 .prop-form div {
+    flex-basis: 50%;
+}
+
+.prop-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-left: 10%;
+}
+
+.prop-content div {
     flex-basis: 50%;
 }
 
@@ -186,15 +198,11 @@ a {
 
 .card-container {
     padding: 2px 16px 12px 16px;
+    height: auto;
 }
 
-#delete {
+.right {
     float: right;
-}
-
-input[type="button"] {
-    font-size: 16px;
-
 }
 
 #register-form {
@@ -205,7 +213,6 @@ input[type="button"] {
     margin: 20px auto 20px auto;
     padding-top: 20px;
     width: 80%;
-
 }
 
 #register-form label:not(.inline) {
@@ -218,7 +225,7 @@ input[type="button"] {
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 3px;
-    font-size: small;
+    font-size: medium;
     width: 75%;
 }
 
@@ -250,4 +257,8 @@ input[type="button"] {
 .red {
     background-color: indianred;
     color: white;
+}
+
+.wish {
+    text-align: right;
 }

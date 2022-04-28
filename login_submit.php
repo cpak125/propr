@@ -16,6 +16,7 @@ session_start();
     include 'db/connect_db.php';
     $isValid = true;
 
+
     function verify_password($input, $correct) {
         return (($input == $correct)) ? true : false;
     }
@@ -23,21 +24,25 @@ session_start();
     if (isset($_GET['Submit'])) {
         $email = isset($_GET['email']) ? $_GET['email'] : '';
         $password = isset($_GET['password']) ?  $_GET['password'] : '';
+        $errors = [];
     }
 
     if ($email == "") {
         $isValid = false;
-        echo "Error: Email Field is empty.";
+        $errors[] = "Email Field is empty";
     }
 
     if ($password == "") {
         $isValid = false;
-        echo "Error: Password Field is empty.";
+        $errors[] = "Password Field is empty.";
     }
 
     if (!$isValid) {
-        echo "<p>Invalid login credentials. Please enter correct login.";
-        echo "<input type='button' value='Go Back' onclick='history.back()'></p>";
+        echo "<p>Please fix the following errors:<ul>";
+        foreach ($errors as $error) {
+            echo "<li>$error</li>";
+        }
+        echo "</ul><input type='button' value='Go Back' onClick='history.back()'></p>";
     }
 
     $encrypt = md5($password);
@@ -59,7 +64,7 @@ session_start();
         $_SESSION["firstname"] = $row["firstname"];
         $_SESSION["lastname"] = $row["lastname"];
         $_SESSION["email"] = $row["email"];
-        $_SESSION["type"] = $row["type"];
+        $_SESSION["type"] = ($row["type"]);
     } else {
         // echo "Error: " . $sql . "<br>" .  mysqli_error($conn);
         echo "<p>$email could not be found.</p>";

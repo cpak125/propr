@@ -34,9 +34,9 @@ $sql = "CREATE TABLE IF NOT EXISTS Property (
             zip VARCHAR(30),
             squareFt VARCHAR(30),
             type VARCHAR(30),
-            bed VARCHAR(30),
-            bath VARCHAR(30),
-            price VARCHAR(30),
+            bed INT(11),
+            bath INT(11),
+            price INT(11),
             imgURL VARCHAR(30))";
 
 if (mysqli_query($conn, $sql)) {

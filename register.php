@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <script src="https://kit.fontawesome.com/0016bfb6b4.js" crossorigin="anonymous"></script>
+
     <style>
         <?php include "styles.css" ?>
     </style>
@@ -41,19 +43,28 @@
                     <input type="password" id="password" name="password" placeholder="Enter your password">
                 </div>
                 <div>
-                    <label for="confirm-pass">Confirm Password</label>
-                    <input type="password" id="confirm-pass" name="confirm-pass" placeholder="Re-enter password">
+                    <label for="confirmPass">Confirm Password</label>
+                    <input type="password" id="confirmPass" name="confirmPass" placeholder="Re-enter password">
                 </div>
             </div>
             <h3 class="center">Payment</h3>
+
+            <div class="icon-container center">
+                <h4>Accepted Cards</h4>
+                <i class="fa-brands fa-3x fa-cc-visa" style="color:navy;"></i>
+                <i class="fa-brands fa-3x fa-cc-amex" style="color:blue;"></i>
+                <i class="fa-brands fa-3x fa-cc-mastercard" style="color:red;"></i>
+                <i class="fa-brands fa-3x fa-cc-discover" style="color:orange;"></i>
+            </div><br>
+
             <div id="register-content">
                 <div>
-                    <label for="firstname">Name on Card</label>
-                    <input type="text" name="firstname" id="firstname" placeholder="John More Doe">
+                    <label for="name">Name On Card</label>
+                    <input type="text" name="name" id="name" placeholder="John Doe">
                 </div>
                 <div>
                     <label for="card-num">Card Number</label>
-                    <input type="text" name="card-num" id="card-num" placeholder="1111-2222-3333-4444">
+                    <input type="text" name="card-num" id="card-num" oninput="checkType()" placeholder="1111-2222-3333-4444">
                 </div>
                 <div>
                     <label for="card-exp">Exp. Date</label>
@@ -68,12 +79,16 @@
                     <input type="text" name="phone" id="phone" placeholder="999-999-9999">
                 </div>
 
+                <div id="card-logo">
+
+                </div>
+
             </div>
 
             <div class="center">
                 <input type="checkbox" id="terms" name="terms">
                 <label class="inline" for="terms"> I accept the
-                    <span><a class="linkify" href="#" onclick="return confirm('Insert terms here')">Terms of Use</a>
+                    <span><a class="linkify" href="#" onclick="return confirm('These are our terms')">Terms of Use</a>
                     </span>
                 </label>
             </div><br>
@@ -84,7 +99,9 @@
             </div>
         </form>
     </div>
-
+    <script>
+        <?php include 'main.js' ?>
+    </script>
 </body>
 
 </html>

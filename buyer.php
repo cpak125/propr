@@ -13,17 +13,108 @@ session_start();
     <style>
         <?php include "styles.css" ?>
     </style>
+    <script src="https://kit.fontawesome.com/0016bfb6b4.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
     <?php
-    $uid = $_SESSION["uid"];
-    $firstname = $_SESSION["firstname"];
-
-    echo "<div id='navbar'><div>Welcome Buyer, $firstname</div>";
-    echo "<div><a href='logout.php'>Logout</a></div></div>";
-
+    $minprice = $_SESSION["minprice"];
+    $maxprice = $_SESSION["maxprice"];
+    $beds = $_SESSION["beds"];
+    $baths = $_SESSION["baths"];
     ?>
+
+    <div class='navbar'>
+        <div>Welcome Buyer, <?= $_SESSION["firstname"] ?></div>
+        <div><a href="about.php">About Us </a></div>
+        <div>
+            <a href='buyer.php?minprice=<?= $minprice ?>&maxprice=<?= $maxprice ?>&beds=<?= $beds ?>&baths=<?= $baths ?>&Submit=Search'>
+                Dashboard</a>
+        </div>
+        <div><a href="wishlist.php">My Wishlist </a></div>
+        <div><a href='logout.php'>Logout</a></div>
+    </div>
+
+    <form method="get" action="">
+        <label for="minprice">Min. Price</label>
+        <div>$<input type="text" name="minprice" id="minprice" value="<?= $_GET['minprice'] ?>" placeholder="200,000" required></div>
+
+        <label for="maxprice">Max Price</label>
+        <div> $<input type="text" name="maxprice" id="maxprice" value="<?= $_GET['maxprice'] ?>" placeholder="400,000" required></div>
+
+        <select name="beds" required>
+            <option value="" disabled selected>Bedrooms</option>
+            <option <?php if ($_GET['beds'] == '1') { ?>selected="true" <?php }; ?> value="1">1+</option>
+            <option <?php if ($_GET['beds'] == '2') { ?>selected="true" <?php }; ?> value="2">2+</option>
+            <option <?php if ($_GET['beds'] == '3') { ?>selected="true" <?php }; ?> value="3">3+</option>
+            <option <?php if ($_GET['beds'] == '4') { ?>selected="true" <?php }; ?> value="4">4+</option>
+            <option <?php if ($_GET['beds'] == '5') { ?>selected="true" <?php }; ?> value="5">5+</option>
+            <option <?php if ($_GET['beds'] == '6') { ?>selected="true" <?php }; ?>value="6">6+</option>
+        </select>
+
+        <select name="baths" required>
+            <option value="" disabled selected>Bathrooms</option>
+            <option <?php if ($_GET['beds'] == '1') { ?>selected="true" <?php }; ?> value="1">1+</option>
+            <option <?php if ($_GET['beds'] == '2') { ?>selected="true" <?php }; ?> value="2">2+</option>
+            <option <?php if ($_GET['beds'] == '3') { ?>selected="true" <?php }; ?> value="3">3+</option>
+            <option <?php if ($_GET['beds'] == '4') { ?>selected="true" <?php }; ?> value="4">4+</option>
+            <option <?php if ($_GET['beds'] == '5') { ?>selected="true" <?php }; ?> value="5">5+</option>
+            <option <?php if ($_GET['beds'] == '6') { ?>selected="true" <?php }; ?> value="6">6+</option>
+        </select>
+        <input class="green" name="Submit" type="submit" value="Search">
+    </form>
+
+    <div id="prop-container">
+        <?php
+        include 'db/connect_db.php';
+
+        if (isset($_GET['Submit'])) {
+            $minprice = isset($_GET['minprice']) ? str_replace(',', '', $_GET['minprice']) : '';
+            $maxprice = isset($_GET['maxprice']) ?  str_replace(',', '', $_GET['maxprice']) : '';
+            $beds = isset($_GET['beds']) ? $_GET['beds'] : '';
+            $baths = isset($_GET['baths']) ? $_GET['baths'] : '';
+
+            $_SESSION["minprice"] = number_format($minprice);
+            $_SESSION["maxprice"] = number_format($maxprice);
+            $_SESSION["beds"] = $beds;
+            $_SESSION["baths"] = $baths;
+        }
+
+        $sql = "SELECT * FROM Property WHERE price >= '$minprice' 
+                AND price <= '$maxprice'
+                AND bed >= '$beds'
+                AND bath >= '$baths'";
+
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+        ?>
+                <div class="cards">
+                    <!-- attach  propID through URL -->
+                    <a href="property.php?propId=<?= $row['propId'] ?>">
+                        <img src="img/<?= $row["imgURL"] ?>" alt="property photo">
+                        <div class="cards-container">
+                            <p><span class="bold">City, State: </span><?= $row["city_state"] ?></p>
+                            <p><span class="bold">Price: </span>$ <?= number_format($row["price"]) ?></p>
+                            <p><span class="bold">Bedrooms: </span><?= $row["bed"] ?></p>
+                            <p><span class="bold">Bathrooms:</span> <?= $row["bath"] ?></p>
+                        </div>
+                    </a>
+                </div>
+        <?php
+            }
+        }
+
+        mysqli_close($conn);
+        ?>
+
+    </div>
+
+    <script>
+        <?php include 'main.js' ?>
+    </script>
 </body>
 
 </html>
