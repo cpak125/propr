@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Wish</title>
+    <script src="https://kit.fontawesome.com/0016bfb6b4.js" crossorigin="anonymous"></script>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -22,8 +24,7 @@
     $sql = mysqli_query($conn, "SELECT * FROM Wishlist WHERE buyerId = '$buyerId' AND propId = '$propId' ");
 
     if (mysqli_num_rows($sql)) {
-        echo "You already added this to your Wishlist<br>";
-        echo "<div>
+        echo "<div class='error'><p>You already added this to your Wishlist</p>
                 <a href='buyer.php?minprice=$minprice&maxprice=$maxprice&beds=$beds&baths=$baths&Submit=Search'>
                     <input type='button' value='Return'></input>
                 </a>

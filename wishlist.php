@@ -7,9 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wishlist</title>
-    <style>
-        <?php include "styles.css" ?>
-    </style>
+    <script src="https://kit.fontawesome.com/0016bfb6b4.js" crossorigin="anonymous"></script>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -21,6 +20,7 @@
     ?>
 
     <div class='navbar'>
+        <h3>PropR</h3>
         <div>Welcome Buyer, <?= $_SESSION["firstname"] ?></div>
         <div><a href="about.php">About Us </a></div>
         <div>
@@ -28,7 +28,7 @@
                 Dashboard</a>
         </div>
         <div><a href="wishlist.php">My Wishlist </a></div>
-        <div><a href='logout.php'>Logout</a></div>
+        <div><a href='logout.php'><i class="fa-solid fa-right-from-bracket"></i>Logout</a></div>
     </div>
     <h2 class="center">Wishlist</h2>
     <div id="prop-container">

@@ -9,9 +9,10 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seller Dash</title>
-    <link href="styles.css" rel="stylesheet" type="text/css" />
     <script src="https://kit.fontawesome.com/0016bfb6b4.js" crossorigin="anonymous"></script>
-
+    <style>
+        <?php include 'styles.css' ?>
+    </style>
 </head>
 
 <body>

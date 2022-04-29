@@ -35,9 +35,9 @@ session_start()
             <div><a href="<?= $_SESSION["type"] ?>.php">Dashboard </a></div>
         <?php }
         if ($_SESSION["type"] == "buyer") { ?>
-            <div><a href='wishlist.php'>Wishlist</a></div>
+            <div><a href='wishlist.php'>My Wishlist</a></div>
         <?php } ?>
-        <div><a href='logout.php'>Logout</a></div>
+        <div><a href='logout.php'><i class="fa-solid fa-right-from-bracket"></i>Logout</a></div>
     </div>
 
     <?php
@@ -68,16 +68,21 @@ session_start()
             <p><span class="bold">Bathrooms:</span><?= $row["bath"] ?> </p>
             <p><span class="bold">Total square ft:</span><?= $row["squareFt"] ?> </p>
 
-            <!-- Only show these two buttons if the user is a seller -->
+
             <?php if ($_SESSION["type"] == "seller") { ?>
-                <input class="form-btns green" type="button" onclick="showModal('update-prop')" value="Edit"></input>
-                <a onclick="return  confirm('Delete this property?')" href="delete.php?propId=<?= $row['propId'] ?>">
-                    <input class="form-btns red right" type="button" value="Delete"></input>
+                <!-- Only show these two icons if the user is a seller -->
+                <a href="#">
+                    <i class="fa-solid fa-pen-to-square" onclick="showModal('update-prop')"></i>
                 </a>
-            <?php } else if (!isset($_GET["wishable"])) { ?>
+
+                <a onclick="return  confirm('Delete this property?')" href="delete.php?propId=<?= $row['propId'] ?>">
+                    <i class="fa-solid fa-trash-can right"></i>
+                </a>
+            <?php } else if ($_SESSION["type"] == "buyer" && !isset($_GET["wishable"])) { ?>
+                <!-- only show wishlist icon if not currently in wishlist -->
                 <div class="wish">
                     <a onclick="return confirm('Add this to your wishlist?')" href="add_wish.php?propId=<?= $row['propId'] ?>">
-                        <input class="form-btns green " type="button" value="Wishlist"></input>
+                        <i class="fa-solid fa-thumbs-up"></i>
                     </a>
                 </div>
             <?php } ?>

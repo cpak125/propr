@@ -10,11 +10,8 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buyer Dash</title>
-    <style>
-        <?php include "styles.css" ?>
-    </style>
     <script src="https://kit.fontawesome.com/0016bfb6b4.js" crossorigin="anonymous"></script>
-
+    <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -26,6 +23,7 @@ session_start();
     ?>
 
     <div class='navbar'>
+        <h3>PropR</h3>
         <div>Welcome Buyer, <?= $_SESSION["firstname"] ?></div>
         <div><a href="about.php">About Us </a></div>
         <div>
@@ -33,37 +31,50 @@ session_start();
                 Dashboard</a>
         </div>
         <div><a href="wishlist.php">My Wishlist </a></div>
-        <div><a href='logout.php'>Logout</a></div>
+        <div><a href='logout.php'><i class="fa-solid fa-right-from-bracket"></i>Logout</a></div>
     </div>
+    <h2 class="center">Search</h2>
+    <form id="search" method="get" action="">
 
-    <form method="get" action="">
-        <label for="minprice">Min. Price</label>
-        <div>$<input type="text" name="minprice" id="minprice" value="<?= $_GET['minprice'] ?>" placeholder="200,000" required></div>
+        <div>
+            <label for="minprice">&nbsp;&nbsp;Min. Price</label>
+            <div>$<input type="text" name="minprice" id="minprice" value="<?= $_GET['minprice'] ?>" placeholder="200,000" required></div>
+        </div>
 
-        <label for="maxprice">Max Price</label>
-        <div> $<input type="text" name="maxprice" id="maxprice" value="<?= $_GET['maxprice'] ?>" placeholder="400,000" required></div>
+        <div>
+            <label for="maxprice">&nbsp;&nbsp;Max Price</label>
+            <div> $<input type="text" name="maxprice" id="maxprice" value="<?= $_GET['maxprice'] ?>" placeholder="400,000" required></div>
+        </div>
 
-        <select name="beds" required>
-            <option value="" disabled selected>Bedrooms</option>
-            <option <?php if ($_GET['beds'] == '1') { ?>selected="true" <?php }; ?> value="1">1+</option>
-            <option <?php if ($_GET['beds'] == '2') { ?>selected="true" <?php }; ?> value="2">2+</option>
-            <option <?php if ($_GET['beds'] == '3') { ?>selected="true" <?php }; ?> value="3">3+</option>
-            <option <?php if ($_GET['beds'] == '4') { ?>selected="true" <?php }; ?> value="4">4+</option>
-            <option <?php if ($_GET['beds'] == '5') { ?>selected="true" <?php }; ?> value="5">5+</option>
-            <option <?php if ($_GET['beds'] == '6') { ?>selected="true" <?php }; ?>value="6">6+</option>
-        </select>
-
-        <select name="baths" required>
-            <option value="" disabled selected>Bathrooms</option>
-            <option <?php if ($_GET['beds'] == '1') { ?>selected="true" <?php }; ?> value="1">1+</option>
-            <option <?php if ($_GET['beds'] == '2') { ?>selected="true" <?php }; ?> value="2">2+</option>
-            <option <?php if ($_GET['beds'] == '3') { ?>selected="true" <?php }; ?> value="3">3+</option>
-            <option <?php if ($_GET['beds'] == '4') { ?>selected="true" <?php }; ?> value="4">4+</option>
-            <option <?php if ($_GET['beds'] == '5') { ?>selected="true" <?php }; ?> value="5">5+</option>
-            <option <?php if ($_GET['beds'] == '6') { ?>selected="true" <?php }; ?> value="6">6+</option>
-        </select>
-        <input class="green" name="Submit" type="submit" value="Search">
+        <div>
+            <label for="beds">Beds</label>
+            <select id="beds" name="beds" required>
+                <option value="" disabled selected>Bedrooms</option>
+                <option <?php if ($_GET['beds'] == '1') { ?>selected="true" <?php }; ?> value="1">1+</option>
+                <option <?php if ($_GET['beds'] == '2') { ?>selected="true" <?php }; ?> value="2">2+</option>
+                <option <?php if ($_GET['beds'] == '3') { ?>selected="true" <?php }; ?> value="3">3+</option>
+                <option <?php if ($_GET['beds'] == '4') { ?>selected="true" <?php }; ?> value="4">4+</option>
+                <option <?php if ($_GET['beds'] == '5') { ?>selected="true" <?php }; ?> value="5">5+</option>
+                <option <?php if ($_GET['beds'] == '6') { ?>selected="true" <?php }; ?>value="6">6+</option>
+            </select>
+        </div>
+        <div>
+            <label for="baths">Baths</label>
+            <select id="baths" name="baths" required>
+                <option value="" disabled selected>Bathrooms</option>
+                <option <?php if ($_GET['beds'] == '1') { ?>selected="true" <?php }; ?> value="1">1+</option>
+                <option <?php if ($_GET['beds'] == '2') { ?>selected="true" <?php }; ?> value="2">2+</option>
+                <option <?php if ($_GET['beds'] == '3') { ?>selected="true" <?php }; ?> value="3">3+</option>
+                <option <?php if ($_GET['beds'] == '4') { ?>selected="true" <?php }; ?> value="4">4+</option>
+                <option <?php if ($_GET['beds'] == '5') { ?>selected="true" <?php }; ?> value="5">5+</option>
+                <option <?php if ($_GET['beds'] == '6') { ?>selected="true" <?php }; ?> value="6">6+</option>
+            </select>
+        </div>
+        <div>
+            <input class="green" name="Submit" type="submit" value="Search">
+        </div>
     </form>
+    </div>
 
     <div id="prop-container">
         <?php

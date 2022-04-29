@@ -121,12 +121,14 @@ body {
     flex-direction: row;
     margin: 5%;
     flex-wrap: wrap;
-    justify-content: space-between;
-    row-gap: 40px;
+    justify-content: flex-start;
+    gap: 3.2rem;
 }
 
+
+
 .cards {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 8px 16px;
     transition: 0.3s;
     width: 22%;
 }
@@ -192,7 +194,7 @@ body {
 }
 
 .modal-content {
-    background-color: #094074;
+    background-color: #102E4A;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
@@ -252,10 +254,10 @@ input[type="file"] {
 }
 
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     width: 35%;
     height: auto;
-    margin: 10vh auto 0 auto;
+    margin: 7vh auto 0 auto;
 }
 
 .card img {
@@ -266,6 +268,16 @@ input[type="file"] {
 .card-container {
     padding: 2px 16px 12px 16px;
     height: auto;
+}
+
+.fa-pen-to-square {
+    color: #59C9A5;
+    font-size: 22px
+}
+
+.fa-trash-can {
+    color: #F03A47;
+    font-size: 22px;
 }
 
 .right {
@@ -320,6 +332,33 @@ input[type="file"] {
     width: 20%;
 }
 
+#search {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70%;
+    margin: 2rem auto;
+    border: 2px solid #8EA4D2;
+    padding: 1rem;
+}
+
+#search input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: medium;
+}
+
+#search select {
+    font-size: medium;
+    display: block;
+}
+
+#search input[type="submit"] {
+    width: 7rem;
+}
+
 .green {
     background-color: #59C9A5;
     color: white;
@@ -347,6 +386,11 @@ input[type="file"] {
 
 .wish {
     text-align: right;
+}
+
+.fa-thumbs-up {
+    font-size: 24px;
+    color: #59C9A5;
 }
 
 .left {
