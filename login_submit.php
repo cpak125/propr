@@ -66,7 +66,7 @@ session_start();
         $_SESSION["firstname"] = $row["firstname"];
         $_SESSION["lastname"] = $row["lastname"];
         $_SESSION["email"] = $row["email"];
-        $_SESSION["type"] = ($row["type"]);
+        $_SESSION["type"] = $row["type"];
     } else {
         echo "<div class='error'><p>$email could not be found.</p>";
         echo "<input type='button' value='Go Back' onclick='history.back()'></br>";

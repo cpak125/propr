@@ -22,7 +22,7 @@ session_start();
     ?>
     <div class='navbar'>
         <h3>PropR</h3>
-        <div>Welcome Seller, <?= $_SESSION["firstname"] ?></div>
+        <div>Welcome <?= $_SESSION["firstname"] ?> &nbsp;(<?= ($_SESSION["type"]) ?>)</div>
         <div><a href="about.php">About Us </a></div>
         <div><a href="seller.php">Dashboard </a></div>
         <div><a href='logout.php'><i class="fa-solid fa-right-from-bracket"></i>Logout</a></div>

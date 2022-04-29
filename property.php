@@ -24,7 +24,7 @@ session_start()
 
     <div class='navbar'>
         <h3>PropR</h3>
-        <div>Welcome <?= ucfirst($_SESSION["type"]) ?>, <?= $_SESSION["firstname"] ?></div>
+        <div>Welcome <?= $_SESSION["firstname"] ?> &nbsp;(<?= ($_SESSION["type"]) ?>)</div>
         <div><a href="about.php">About Us </a></div>
         <?php if ($_SESSION["type"] == "buyer") { ?>
             <div>
@@ -64,6 +64,7 @@ session_start()
         <div class="card-container">
             <h3><span class="bold">Listing Price:</span> $<?= number_format($row["price"]) ?> </h3>
             <p><span class="bold">Address:</span><?= $row["street"] ?>, <?= $row["city_state"] ?>, <?= $row["zip"] ?> </p>
+            <p><span class="bold">Type:</span><?= $row["type"] ?> </p>
             <p><span class="bold">Bedrooms:</span><?= $row["bed"] ?> </p>
             <p><span class="bold">Bathrooms:</span><?= $row["bath"] ?> </p>
             <p><span class="bold">Total square ft:</span><?= $row["squareFt"] ?> </p>

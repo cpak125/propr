@@ -56,7 +56,7 @@ body {
 }
 
 #login-form {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: rgba(0, 0, 0, 0.50) 0 0 16px;
     width: 30%;
     margin-top: 4rem;
     margin-left: auto;
@@ -98,7 +98,7 @@ body {
 }
 
 .error {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: rgba(0, 0, 0, 0.50) 0 0 16px;
     width: 40%;
     font-size: large;
     margin-top: 20vh;
@@ -128,7 +128,7 @@ body {
 
 
 .cards {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 8px 16px;
+    box-shadow: rgba(0, 0, 0, 0.50) 0 0 16px;
     transition: 0.3s;
     width: 22%;
 }
@@ -150,13 +150,13 @@ body {
 
 .add {
     width: 22%;
-    height: 393px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    height: 346px;
+    box-shadow: rgba(0, 0, 0, 0.50) 0 0 16px;
     text-align: center;
 }
 
 .cards:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: rgba(0, 0, 0, 0.50) 0 0 16px;
 }
 
 .cards-container {
@@ -166,7 +166,8 @@ body {
 }
 
 .cards-container p {
-    padding: 2px 16px;
+    padding-left: 1rem;
+    margin: 12px 0;
 }
 
 .bold {
@@ -176,7 +177,7 @@ body {
 
 .fa-circle-plus {
     color: #0090C1;
-    padding-top: 10rem;
+    padding-top: 9rem;
     width: 100%;
     animation-duration: 2s;
     animation-duration: 2s;
@@ -254,7 +255,7 @@ input[type="file"] {
 }
 
 .card {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: rgba(0, 0, 0, 0.50) 0 0 16px;
     width: 35%;
     height: auto;
     margin: 7vh auto 0 auto;
@@ -271,7 +272,7 @@ input[type="file"] {
 }
 
 .fa-pen-to-square {
-    color: #59C9A5;
+    color: #0090C1;
     font-size: 22px
 }
 
@@ -359,6 +360,44 @@ input[type="file"] {
     width: 7rem;
 }
 
+#admin-container {
+    width: 70%;
+    margin: 3rem auto 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 4rem;
+}
+
+.admin-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.admin-card {
+    width: 23%;
+    box-shadow: rgba(0, 0, 0, 0.50) 0 0 16px;
+}
+
+.admin-card {
+    padding: 0.5rem;
+}
+
+.admin-card i {
+    padding-right: 1rem;
+    color: #102E4A;
+}
+
+.admin-card th {
+    text-align: left;
+}
+
+.stat {
+    font-size: 1.75em;
+    color: #0090C1;
+}
+
 .green {
     background-color: #59C9A5;
     color: white;
@@ -388,11 +427,16 @@ input[type="file"] {
     text-align: right;
 }
 
-.fa-thumbs-up {
+.fa-thumbs-up:not(.admin) {
     font-size: 24px;
-    color: #59C9A5;
+    color: #0090C1;
 }
 
 .left {
     text-align: left;
+}
+
+#sample {
+    margin: auto;
+    width: 30%;
 }

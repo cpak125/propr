@@ -21,7 +21,7 @@
 
     <div class='navbar'>
         <h3>PropR</h3>
-        <div>Welcome Buyer, <?= $_SESSION["firstname"] ?></div>
+        <div>Welcome <?= $_SESSION["firstname"] ?> &nbsp;(<?= ($_SESSION["type"]) ?>)</div>
         <div><a href="about.php">About Us </a></div>
         <div>
             <a href='buyer.php?minprice=<?= $minprice ?>&maxprice=<?= $maxprice ?>&beds=<?= $beds ?>&baths=<?= $baths ?>&Submit=Search'>

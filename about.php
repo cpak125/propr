@@ -26,7 +26,7 @@ session_start();
     <?php if (isset($_SESSION["uid"])) { ?>
         <div class="navbar">
             <h3>PropR</h3>
-            <div>Welcome <?= ucfirst($_SESSION["type"]) ?>, <?= $_SESSION["firstname"] ?></div>
+            <div>Welcome <?= $_SESSION["firstname"] ?>&nbsp;(<?= ($_SESSION["type"]) ?>)</div>
             <div><a href="about.php">About Us </a></div>
             <?php if ($_SESSION["type"] == "buyer") { ?>
                 <div>
