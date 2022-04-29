@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verifying Registration</title>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -20,8 +21,8 @@
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         $confirmPass = isset($_POST['confirmPass']) ? $_POST['confirmPass'] : '';
         $name = isset($_POST['name']) ? $_POST['name'] : '';
-        $cardNum = isset($_POST['cardNum']) ? $_POST['cardNum'] : '';
-        $cardExp = isset($_POST['cardExp']) ? $_POST['cardExp'] : '';
+        $cardNum = isset($_POST['card-num']) ? $_POST['card-num'] : '';
+        $cardExp = isset($_POST['card-exp']) ? $_POST['card-exp'] : '';
         $address = isset($_POST['address']) ? $_POST['address'] : '';
         $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
     }
@@ -96,21 +97,21 @@
 
 
     if (!$isValid) {
-        echo "<p>Please fix the following errors:<ul>";
+        echo "<div class='error'><p>Please fix the following errors:<ul>";
         foreach ($errors as $error) {
             echo "<li>$error</li>";
         }
-        echo "</ul><input type='button' value='Go Back' onClick='history.back()'></p>";
+        echo "</ul><input type='button' value='Go Back' onClick='history.back()'></p></div>";
+        exit(-1);
     } else {
         $sql = "INSERT INTO User (firstname, lastname, type, email, password)
                 VALUES('$firstname', '$lastname', '$type', '$email', md5('$password'))";
         if (mysqli_query($conn, $sql)) {
-            // echo "<p>You have sucessfully registered! Thanks for signing up $firstname.</p>";
             header("location:login.php");
+            exit;
         } else {
-            // echo "Error: " . $sql . "<br>" .  mysqli_error($conn);
-            echo "<p>It seems that a user with the email: $email already exists.</p>";
-            echo "<input type='button' value='Try again' onClick='history.back()'><br>";
+            echo "<div class='error><p>It seems that a user with the email: $email already exists.</p>";
+            echo "<input type='button' value='Try again' onClick='history.back()'></div>";
         }
     }
 

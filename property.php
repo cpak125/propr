@@ -11,9 +11,7 @@ session_start()
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Property Details</title>
     <script src="https://kit.fontawesome.com/0016bfb6b4.js" crossorigin="anonymous"></script>
-    <style>
-        <?php include "styles.css" ?>
-    </style>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -25,6 +23,7 @@ session_start()
     ?>
 
     <div class='navbar'>
+        <h3>PropR</h3>
         <div>Welcome <?= ucfirst($_SESSION["type"]) ?>, <?= $_SESSION["firstname"] ?></div>
         <div><a href="about.php">About Us </a></div>
         <?php if ($_SESSION["type"] == "buyer") { ?>

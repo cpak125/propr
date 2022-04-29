@@ -7,16 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <script src="https://kit.fontawesome.com/0016bfb6b4.js" crossorigin="anonymous"></script>
-
-    <style>
-        <?php include "styles.css" ?>
-    </style>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
+    <div class='navbar'>
+        <h3>PropR</h3>
+        <div><a href="about.php">About Us </a></div>
+    </div>
 
     <div>
         <form id="register-form" action="register_submit.php" method="post">
+            <h3 class="center">Registration</h3>
             <div id="register-content">
                 <div>
                     <label for="firstname">First Name</label>
@@ -27,9 +29,9 @@
                     <input type="text" name="lastname" id="lastname" placeholder="Enter your last name">
                 </div>
                 <div>
-                    <div>Please select if you're a Buyer or Seller</div><br>
+                    <label>Please select if you're a Buyer or Seller</label><br>
                     <label class="inline" for="buyer">Buyer</label>
-                    <input type="radio" id="buyer" name="type" value="buyer">
+                    <input type="radio" id="buyer" name="type" value="buyer">&nbsp;&nbsp;
 
                     <label class="inline" for="seller">Seller</label>
                     <input type="radio" id="seller" name="type" value="seller">
@@ -60,23 +62,23 @@
             <div id="register-content">
                 <div>
                     <label for="name">Name On Card</label>
-                    <input type="text" name="name" id="name" placeholder="John Doe">
+                    <input type="text" name="name" id="name" placeholder="John Doe" required>
                 </div>
                 <div>
                     <label for="card-num">Card Number</label>
-                    <input type="text" name="card-num" id="card-num" oninput="checkType()" placeholder="1111-2222-3333-4444">
+                    <input type="text" name="card-num" id="card-num" oninput="checkType()" placeholder="1111-2222-3333-4444" required>
                 </div>
                 <div>
                     <label for="card-exp">Exp. Date</label>
-                    <input type="text" name="card-exp" id="card-exp" placeholder="MM/YY">
+                    <input type="text" name="card-exp" id="card-exp" placeholder="MM/YY" required>
                 </div>
                 <div>
                     <label for="address">Billing Address</label>
-                    <input type="text" name="address" id="address" placeholder="123 West St., Atlanta, GA, 33333">
+                    <input type="text" name="address" id="address" placeholder="123 West St., Atlanta, GA, 33333" required>
                 </div>
                 <div>
                     <label for="phone">Phone Number</label>
-                    <input type="text" name="phone" id="phone" placeholder="999-999-9999">
+                    <input type="text" name="phone" id="phone" placeholder="999-999-9999" required>
                 </div>
 
                 <div id="card-logo">
@@ -86,7 +88,7 @@
             </div>
 
             <div class="center">
-                <input type="checkbox" id="terms" name="terms">
+                <input type="checkbox" id="terms" name="terms" required>
                 <label class="inline" for="terms"> I accept the
                     <span><a class="linkify" href="#" onclick="return confirm('These are our terms')">Terms of Use</a>
                     </span>
@@ -95,7 +97,8 @@
 
             <div class="center">
                 <input class="form-btns green" name="Submit" type="submit" value="Register">
-                <input class="form-btns red" type="reset" value="Cancel" onClick="history.back()">
+                <a class="center" href="login.php"><input class="form-btns red" value="Cancel"></a>
+
             </div>
         </form>
     </div>

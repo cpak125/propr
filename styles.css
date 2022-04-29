@@ -4,18 +4,55 @@ body {
 }
 
 .navbar {
-    background-color: lightblue;
-    height: 10vh;
+    background-color: #102E4A;
+    height: 8vh;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
+    color: white;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+
+}
+
+.navbar button {
+    background-color: #59C9A5;
+    border-radius: 4px;
+    border: 1px solid white;
+    font-size: 14px;
+    padding: 4px 8px;
+    color: #102E4A;
+    font-weight: bold;
+}
+
+#about {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#about p {
+    font-size: 16px;
+}
+
+.navbar button:hover {
+    background-color: #8EA4D2
 }
 
 .navbar a:hover {
-    background-color: white;
+    background-color: #59C9A5;
+    color: #102E4A;
 }
 
 #login-form {
@@ -34,7 +71,7 @@ body {
 }
 
 #login-form form {
-    padding-top: 2rem;
+    padding-top: 1rem;
 }
 
 #login-form p {
@@ -53,36 +90,66 @@ body {
 
 #login-form input[type="submit"] {
     cursor: pointer;
-    font-size: medium;
-    background-color: lightseagreen;
+    font-size: larger;
+    background-color: #59C9A5;
     width: 70%;
+    color: white;
+    font-weight: bold;
 }
+
+.error {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 40%;
+    font-size: large;
+    margin-top: 20vh;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+.error input {
+    background-color: #59C9A5;
+    color: white;
+    padding: 6px;
+    font-size: medium;
+    font-weight: bold;
+}
+
 
 #prop-container {
     display: flex;
     flex-direction: row;
     margin: 5%;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 40px;
-    flex-grow: 1;
+    justify-content: space-between;
+    row-gap: 40px;
 }
 
 .cards {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     width: 22%;
-    height: 320px;
+}
+
+.cards:hover {
+    transform: scale(1.1);
+    transition: 1s ease;
+}
+
+.cards a {
+    text-decoration: none;
+    color: black;
 }
 
 .cards img {
     width: 100%;
-    height: 50%;
+    height: 11rem;
 }
 
-.cards.add {
+.add {
     width: 22%;
-    line-height: 320px;
+    height: 393px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
 }
 
@@ -91,6 +158,12 @@ body {
 }
 
 .cards-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.cards-container p {
     padding: 2px 16px;
 }
 
@@ -100,8 +173,8 @@ body {
 }
 
 .fa-circle-plus {
-    color: green;
-    vertical-align: middle;
+    color: #0090C1;
+    padding-top: 10rem;
     width: 100%;
     animation-duration: 2s;
     animation-duration: 2s;
@@ -178,17 +251,11 @@ input[type="file"] {
     cursor: pointer;
 }
 
-a {
-    text-decoration: none;
-    color: black;
-}
-
-
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 35%;
     height: auto;
-    margin: 20px auto 0px auto;
+    margin: 10vh auto 0 auto;
 }
 
 .card img {
@@ -217,16 +284,21 @@ a {
 
 #register-form label:not(.inline) {
     display: block;
+    font-size: large;
 }
 
-#register-form input[type=text],
+#register-form input[type="text"],
 #register-form input[type="password"] {
     margin-bottom: 20px;
-    padding: 12px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
     font-size: medium;
-    width: 75%;
+    width: 70%;
+}
+
+#register-form input[type="radio"] {
+    transform: scale(1.3);
 }
 
 #register-content {
@@ -246,19 +318,37 @@ a {
 
 .form-btns {
     width: 20%;
-    font-size: large;
 }
 
 .green {
-    background-color: lightseagreen;
+    background-color: #59C9A5;
     color: white;
+    padding: 6px;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.green:hover {
+    filter: brightness(1.25);
 }
 
 .red {
-    background-color: indianred;
+    background-color: #F03A47;
     color: white;
+    padding: 6px;
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+}
+
+.red:hover {
+    filter: brightness(1.25);
 }
 
 .wish {
     text-align: right;
+}
+
+.left {
+    text-align: left;
 }

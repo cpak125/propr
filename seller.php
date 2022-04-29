@@ -1,7 +1,6 @@
 <?php
 session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,9 +9,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seller Dash</title>
-    <style>
-        <?php include "styles.css" ?>
-    </style>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
     <script src="https://kit.fontawesome.com/0016bfb6b4.js" crossorigin="anonymous"></script>
 
 </head>
@@ -23,10 +20,11 @@ session_start();
     $firstname = $_SESSION["firstname"];
     ?>
     <div class='navbar'>
+        <h3>PropR</h3>
         <div>Welcome Seller, <?= $_SESSION["firstname"] ?></div>
         <div><a href="about.php">About Us </a></div>
         <div><a href="seller.php">Dashboard </a></div>
-        <div><a href='logout.php'>Logout</a></div>
+        <div><a href='logout.php'><i class="fa-solid fa-right-from-bracket"></i>Logout</a></div>
     </div>
 
     <div id="prop-container">
@@ -45,8 +43,8 @@ session_start();
                 <div class="cards">
                     <!-- attach  propID through URL -->
                     <a href="property.php?propId=<?= $row['propId'] ?>">
-                        <img src="img/<?= $row["imgURL"] ?>" alt="property photo">
                         <div class="cards-container">
+                            <img src="img/<?= $row["imgURL"] ?>" alt="property photo">
                             <p><span class="bold">City, State: </span><?= $row["city_state"] ?></p>
                             <p><span class="bold">Price: </span>$<?= number_format($row["price"]) ?></p>
                             <p><span class="bold">Bedrooms: </span><?= $row["bed"] ?></p>
@@ -63,10 +61,8 @@ session_start();
 
 
         <!-- Add Card -->
-        <div class="cards add">
-            <div onclick="showModal('add-prop')">
-                <i class="fa-solid fa-circle-plus fa-3x fa-beat" style=" --fa-animation-duration: 2s;"></i>
-            </div>
+        <div class="add">
+            <i class="fa-solid fa-circle-plus fa-3x fa-beat" style=" --fa-animation-duration: 2s;" onclick="showModal('add-prop')"></i>
         </div>
     </div>
 
@@ -90,7 +86,7 @@ session_start();
                     </div>
                     <div>
                         <label for="price">Listing Price</label>
-                        <div>$<input type="text" id="price" name="price" placeholder="200,000"></div>
+                        <div>$&nbsp;<input type="text" id="price" name="price" placeholder="200,000"></div>
                     </div>
                     <div>
                         <label for="type">Property Type</label>
@@ -98,7 +94,7 @@ session_start();
                     </div>
                     <div>
                         <label for="squareFt">Total square feet</label>
-                        <div><input type="text" id="squareFt" name="squareFt" placeholder="2,000">sq. ft.</div>
+                        <div><input type="text" id="squareFt" name="squareFt" placeholder="2,000">&nbsp;sq. ft.</div>
                     </div>
                     <div>
                         <label for="bed">Total bedrooms</label>
