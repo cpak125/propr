@@ -26,7 +26,6 @@ session_start();
     <?php
     include 'db/connect_db.php';
 
-    // Find out total number of houses currently in DB
     $sql = "SELECT  (SELECT COUNT(*) FROM User) AS total_users,
                     (SELECT COUNT(*) FROM User WHERE type='buyer') AS total_buyers,
                     (SELECT COUNT(*) FROM User where type='seller') AS total_sellers,
@@ -42,7 +41,7 @@ session_start();
     mysqli_close($conn);
     ?>
 
-    <h2 class="center">Fact and Figures</h2>
+    <h2 class="center">Statsf and Figures</h2>
 
     <div id="admin-container">
         <div class="admin-row">

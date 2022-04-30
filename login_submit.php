@@ -17,6 +17,7 @@ session_start();
     <?php
     include 'db/connect_db.php';
     $isValid = true;
+    $errors = [];
 
     function verify_password($input, $correct) {
         return (($input == $correct)) ? true : false;
@@ -25,7 +26,6 @@ session_start();
     if (isset($_POST['Submit'])) {
         $email = isset($_POST['email']) ? $_POST['email'] : '';
         $password = isset($_POST['password']) ?  $_POST['password'] : '';
-        $errors = [];
     }
 
     if ($email == "") {
@@ -61,10 +61,8 @@ session_start();
             echo "<div class='error'><p>Wrong Password. Enter correct password.</p>";
             echo "<input type='button' value='Go Back' onclick='history.back()'></div>";
         }
-
         $_SESSION["uid"] = $row['uid'];
         $_SESSION["firstname"] = $row["firstname"];
-        $_SESSION["lastname"] = $row["lastname"];
         $_SESSION["email"] = $row["email"];
         $_SESSION["type"] = $row["type"];
     } else {
@@ -77,15 +75,12 @@ session_start();
         case "admin":
             header("location:admin.php");
             exit;
-            break;
         case "buyer":
             header("location:buyer.php");
             exit;
-            break;
         case "seller":
             header("location:seller.php");
             exit;
-            break;
     }
 
     mysqli_close($con);

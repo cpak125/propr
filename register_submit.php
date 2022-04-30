@@ -109,9 +109,6 @@
         if (mysqli_query($conn, $sql)) {
             header("location:login.php");
             exit;
-        } else {
-            echo "<div class='error><p>It seems that a user with the email: $email already exists.</p>";
-            echo "<input type='button' value='Try again' onClick='history.back()'></div>";
         }
     }
 

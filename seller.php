@@ -34,10 +34,8 @@ session_start();
         $sql = "SELECT * FROM Property WHERE sellerId='$uid'";
         $result = mysqli_query($conn, $sql);
 
-        /* Fetch properties associated with this user */
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
-
         ?>
                 <div class="cards">
                     <!-- attach  propID through URL -->

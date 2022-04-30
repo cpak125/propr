@@ -13,6 +13,7 @@
 <body>
     <?php
     include 'db/connect_db.php';
+
     $propId = $_GET["propId"];
     $buyerId = $_SESSION["uid"];
     $minprice = $_SESSION["minprice"];
@@ -20,7 +21,9 @@
     $beds =  $_SESSION["beds"];
     $baths = $_SESSION["baths"];
 
-    $sql = mysqli_query($conn, "SELECT * FROM Wishlist WHERE buyerId = '$buyerId' AND propId = '$propId' ");
+    $sql = mysqli_query($conn, "SELECT * FROM Wishlist 
+                                WHERE buyerId = '$buyerId' 
+                                AND propId = '$propId' ");
 
     if (mysqli_num_rows($sql)) {
         echo "<div class='error'><p>You already added this to your Wishlist</p>
@@ -28,7 +31,7 @@
                     <input type='button' value='Return'></input>
                 </a>
             </div>";
-        exit(-1);
+        exit;
     }
 
     $sql = "INSERT INTO Wishlist (buyerId, propId)

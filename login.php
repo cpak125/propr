@@ -26,7 +26,7 @@
     </div>
     <br><br>
     <div class="center">
-        <p>Sample Log in Credentials</p>
+        <p>Test Log in Credentials</p>
         <table id="sample" border="1" cellpadding="1">
             <tr>
                 <th>User type</td>

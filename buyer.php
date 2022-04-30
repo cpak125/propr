@@ -90,34 +90,37 @@ session_start();
             $_SESSION["maxprice"] = number_format($maxprice);
             $_SESSION["beds"] = $beds;
             $_SESSION["baths"] = $baths;
-        }
 
-        $sql = "SELECT * FROM Property WHERE price >= '$minprice' 
+            $sql = "SELECT * FROM Property WHERE price >= '$minprice' 
                 AND price <= '$maxprice'
                 AND bed >= '$beds'
                 AND bath >= '$baths'";
 
-        $result = mysqli_query($conn, $sql);
+            $result = mysqli_query($conn, $sql);
 
-        if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
         ?>
-                <div class="cards">
-                    <!-- attach  propID through URL -->
-                    <a href="property.php?propId=<?= $row['propId'] ?>">
-                        <img src="img/<?= $row["imgURL"] ?>" alt="property photo">
-                        <div class="cards-container">
-                            <p><span class="bold">City, State: </span><?= $row["city_state"] ?></p>
-                            <p><span class="bold">Price: </span>$ <?= number_format($row["price"]) ?></p>
-                            <p><span class="bold">Bedrooms: </span><?= $row["bed"] ?></p>
-                            <p><span class="bold">Bathrooms:</span> <?= $row["bath"] ?></p>
-                        </div>
-                    </a>
+                    <div class="cards">
+                        <a href="property.php?propId=<?= $row['propId'] ?>">
+                            <img src="img/<?= $row["imgURL"] ?>" alt="property photo">
+                            <div class="cards-container">
+                                <p><span class="bold">City, State: </span><?= $row["city_state"] ?></p>
+                                <p><span class="bold">Price: </span>$ <?= number_format($row["price"]) ?></p>
+                                <p><span class="bold">Bedrooms: </span><?= $row["bed"] ?></p>
+                                <p><span class="bold">Bathrooms:</span> <?= $row["bath"] ?></p>
+                            </div>
+                        </a>
+                    </div>
+                <?php
+                }
+            } else { ?>
+                <div class="center">
+                    <p>Your search returned 0 results</p>
                 </div>
         <?php
             }
         }
-
         mysqli_close($conn);
         ?>
 
