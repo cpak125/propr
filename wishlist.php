@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wishlist</title>
-    <script src="https://kit.fontawesome.com/0016bfb6b4.js" crossorigin="anonymous"></script>
-    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link href="styles/styles.css" rel="stylesheet" type="text/css" />
+    <link href="styles/all.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -37,10 +37,10 @@
 
         $buyerId = $_SESSION["uid"];
 
-        $sql = "SELECT property.*, wishlist.* FROM user 
-                INNER JOIN wishlist ON user.uid = wishlist.buyerId 
-                INNER JOIN property ON wishlist.propId = property.propId
-                WHERE wishlist.buyerId='$buyerId'";
+        $sql = "SELECT Property.*, Wishlist.* FROM User 
+                INNER JOIN Wishlist ON User.uid = Wishlist.buyerId 
+                INNER JOIN Property ON Wishlist.propId = Property.propId
+                WHERE Wishlist.buyerId='$buyerId'";
 
         $result = mysqli_query($conn, $sql);
 

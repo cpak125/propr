@@ -2,13 +2,17 @@
 include 'connect_db.php';
 
 // Create database
-$sql = "CREATE DATABASE IF NOT EXISTS project_4";
+// $sql = "CREATE DATABASE IF NOT EXISTS project_4";
 
-if (mysqli_query($conn, $sql)) {
-    echo "<br>Database created successfully";
-} else {
-    echo "<br>Error creating database: " . mysqli_error($conn);
-}
+// if (mysqli_query($conn, $sql)) {
+//     echo "<br>Database created successfully";
+// } else {
+//     echo "<br>Error creating database: " . mysqli_error($conn);
+// }
+
+//
+
+
 
 // Create User table
 $sql = "CREATE TABLE IF NOT EXISTS User (
@@ -32,7 +36,7 @@ $sql = "CREATE TABLE IF NOT EXISTS Property (
             city_state VARCHAR(30),
             street VARCHAR(30),
             zip VARCHAR(30),
-            squareFt VARCHAR(30),
+            squareFt INT(11),
             type VARCHAR(30),
             bed INT(11),
             bath INT(11),
@@ -57,6 +61,15 @@ if (mysqli_query($conn, $sql)) {
 } else {
     echo "<br>Error creating table: " . mysqli_error($conn);
 }
+
+// $sql = "INSERT INTO  User (firstname, lastname, type, email, password)
+//         VALUES('Chris', 'Pak', 'admin', 'Chris@admin.com', md5('admin'))";
+
+// if (mysqli_query($conn, $sql)) {
+//     echo "<br>admin inserted";
+// } else {
+//     echo mysqli_error($conn);
+// }
 
 
 mysqli_close($conn);

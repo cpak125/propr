@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "project_4";
+$username = "cpak8"; // change to your GSU username
+$password = "cpak8"; // change to your GSU username
+$dbname = "cpak8"; // change to your GSU username
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);

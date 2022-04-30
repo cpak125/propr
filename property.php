@@ -10,8 +10,8 @@ session_start()
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Property Details</title>
-    <script src="https://kit.fontawesome.com/0016bfb6b4.js" crossorigin="anonymous"></script>
-    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link href="styles/styles.css" rel="stylesheet" type="text/css" />
+    <link href="styles/all.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -67,7 +67,7 @@ session_start()
             <p><span class="bold">Type:</span><?= $row["type"] ?> </p>
             <p><span class="bold">Bedrooms:</span><?= $row["bed"] ?> </p>
             <p><span class="bold">Bathrooms:</span><?= $row["bath"] ?> </p>
-            <p><span class="bold">Total square ft:</span><?= $row["squareFt"] ?> </p>
+            <p><span class="bold">Total square ft:</span><?= number_format($row["squareFt"]) ?> </p>
 
 
             <?php if ($_SESSION["type"] == "seller") { ?>
