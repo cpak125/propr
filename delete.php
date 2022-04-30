@@ -14,10 +14,25 @@
     include 'db/connect_db.php';
     $propId = $_GET["propId"];
 
+    $sql = "SELECT imgURL FROM Property WHERE propId=$propId";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+
+    $imgURL = $row["imgURL"];
+
     $sql = "DELETE FROM Property WHERE propId='$propId'";
+    $result = mysqli_query($conn, $sql);
 
     if (mysqli_query($conn, $sql)) {
+        $path = "img";
+        $filename =  $path . "/" .  $imgURL;
+
+        if (file_exists($filename)) {
+            unlink($filename);
+        }
+
         header("location:seller.php");
+        exit;
     } else {
         echo "Error deleting record: " . mysqli_error($conn);
         echo "Property could not be deleted";
