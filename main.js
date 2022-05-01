@@ -19,7 +19,7 @@ function checkType() {
     let subStr = inputVal.substring(0, 2);
     let numeric = parseInt(subStr);
 
-    if (51 <= numeric && numeric <= 57) {
+    if (51 <= numeric && numeric <= 55) {
         insertType("mastercard", "red");
     } else if (subStr.charAt(0) == '4') {
         insertType("visa", "navy");
