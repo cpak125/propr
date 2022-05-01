@@ -103,7 +103,7 @@ session_start();
                     </div>
                     <div>
                         <label for="imgURL">Upload image</label>
-                        <input type="file" id="imgURL" name="imgURL">
+                        <input type="file" id="imgURL" name="imgURL" required>
                     </div><br>
                 </div>
 

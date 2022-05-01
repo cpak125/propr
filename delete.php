@@ -12,16 +12,15 @@
 <body>
     <?php
     include 'db/connect_db.php';
+
     $propId = $_GET["propId"];
 
     $sql = "SELECT imgURL FROM Property WHERE propId=$propId";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
-
     $imgURL = $row["imgURL"];
 
     $sql = "DELETE FROM Property WHERE propId='$propId'";
-    $result = mysqli_query($conn, $sql);
 
     if (mysqli_query($conn, $sql)) {
         $path = "img";

@@ -60,6 +60,7 @@ session_start();
         if (!verify_password($encrypt, $validPass)) {
             echo "<div class='error'><p>Wrong Password. Enter correct password.</p>";
             echo "<input type='button' value='Go Back' onclick='history.back()'></div>";
+            exit;
         }
         $_SESSION["uid"] = $row['uid'];
         $_SESSION["firstname"] = $row["firstname"];

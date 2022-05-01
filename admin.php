@@ -41,7 +41,7 @@ session_start();
     mysqli_close($conn);
     ?>
 
-    <h2 class="center">Statsf and Figures</h2>
+    <h2 class="center">Stats and Figures</h2>
 
     <div id="admin-container">
         <div class="admin-row">
