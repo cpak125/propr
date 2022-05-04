@@ -16,31 +16,8 @@ session_start()
 
 <body>
     <?php
-    $minprice = $_SESSION["minprice"];
-    $maxprice = $_SESSION["maxprice"];
-    $beds = $_SESSION["beds"];
-    $baths = $_SESSION["baths"];
-    ?>
 
-    <div class='navbar'>
-        <h3>PropR</h3>
-        <div>Welcome <?= $_SESSION["firstname"] ?> &nbsp;(<?= ($_SESSION["type"]) ?>)</div>
-        <div><a href="about.php">About Us </a></div>
-        <?php if ($_SESSION["type"] == "buyer") { ?>
-            <div>
-                <a href='buyer.php?minprice=<?= $minprice ?>&maxprice=<?= $maxprice ?>&beds=<?= $beds ?>&baths=<?= $baths ?>&Submit=Search'>
-                    Dashboard</a>
-            </div>
-        <?php } else { ?>
-            <div><a href="<?= $_SESSION["type"] ?>.php">Dashboard </a></div>
-        <?php }
-        if ($_SESSION["type"] == "buyer") { ?>
-            <div><a href='wishlist.php'>My Wishlist</a></div>
-        <?php } ?>
-        <div><a href='logout.php'><i class="fa-solid fa-right-from-bracket"></i>Logout</a></div>
-    </div>
-
-    <?php
+    include 'navbar.php';
     include 'db/connect_db.php';
 
     if (isset($_GET["propId"])) {
@@ -53,7 +30,7 @@ session_start()
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_assoc($result);
         } else {
-            echo "Error: " . $sql . "<br>" .  mysqli_error($conn);
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
     }
     mysqli_close($conn);

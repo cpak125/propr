@@ -15,16 +15,8 @@ session_start();
 
 <body>
     <?php
-    $uid = $_SESSION["uid"];
-    $firstname = $_SESSION["firstname"];
+    include 'navbar.php'
     ?>
-    <div class='navbar'>
-        <h3>PropR</h3>
-        <div>Welcome <?= $_SESSION["firstname"] ?> &nbsp;(<?= ($_SESSION["type"]) ?>)</div>
-        <div><a href="about.php">About Us </a></div>
-        <div><a href="seller.php">Dashboard </a></div>
-        <div><a href='logout.php'><i class="fa-solid fa-right-from-bracket"></i>Logout</a></div>
-    </div>
 
     <div id="prop-container">
         <?php

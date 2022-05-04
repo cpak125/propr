@@ -13,61 +13,45 @@
 
 <body>
     <?php
-    $minprice = $_SESSION["minprice"];
-    $maxprice = $_SESSION["maxprice"];
-    $beds = $_SESSION["beds"];
-    $baths = $_SESSION["baths"];
+    include 'navbar.php'
     ?>
+    
+    <?php
+    include 'db/connect_db.php';
 
-    <div class='navbar'>
-        <h3>PropR</h3>
-        <div>Welcome <?= $_SESSION["firstname"] ?> &nbsp;(<?= ($_SESSION["type"]) ?>)</div>
-        <div><a href="about.php">About Us </a></div>
-        <div>
-            <a href='buyer.php?minprice=<?= $minprice ?>&maxprice=<?= $maxprice ?>&beds=<?= $beds ?>&baths=<?= $baths ?>&Submit=Search'>
-                Dashboard</a>
-        </div>
-        <div><a href="wishlist.php">My Wishlist </a></div>
-        <div><a href='logout.php'><i class="fa-solid fa-right-from-bracket"></i>Logout</a></div>
-    </div>
-    <h2 class="center">Wishlist</h2>
-    <div id="prop-container">
-        <?php
-        include 'db/connect_db.php';
+    $buyerId = $_SESSION["uid"];
 
-        $buyerId = $_SESSION["uid"];
-
-        $sql = "SELECT Property.*, Wishlist.* FROM User 
+    $sql = "SELECT Property.*, Wishlist.* FROM User 
                 INNER JOIN Wishlist ON User.uid = Wishlist.buyerId 
                 INNER JOIN Property ON Wishlist.propId = Property.propId
                 WHERE Wishlist.buyerId='$buyerId'";
 
-        $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($conn, $sql);
 
-        if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-        ?>
-                <div class="cards">
-                    <!-- attach  propID through URL -->
-                    <a href="property.php?propId=<?= $row['propId'] ?>&wishable=false">
-                        <img src="img/<?= $row["imgURL"] ?>" alt="property photo">
-                        <div class="cards-container">
-                            <p><span class="bold">City, State: </span><?= $row["city_state"] ?></p>
-                            <p><span class="bold">Price: </span>$ <?= number_format($row["price"]) ?></p>
-                            <p><span class="bold">Bedrooms: </span><?= $row["bed"] ?></p>
-                            <p><span class="bold">Bathrooms:</span> <?= $row["bath"] ?></p>
-                        </div>
-                    </a>
-                </div>
-            <?php
-            }
-        } else { ?>
-            <p>Nothing in your Wishlist</p>
-
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+    ?>
+            <div class="cards">
+                <!-- attach  propID through URL -->
+                <a href="property.php?propId=<?= $row['propId'] ?>&wishable=false">
+                    <img src="img/<?= $row["imgURL"] ?>" alt="property photo">
+                    <div class="cards-container">
+                        <p><span class="bold">City, State: </span><?= $row["city_state"] ?></p>
+                        <p><span class="bold">Price: </span>$ <?= number_format($row["price"]) ?></p>
+                        <p><span class="bold">Bedrooms: </span><?= $row["bed"] ?></p>
+                        <p><span class="bold">Bathrooms:</span> <?= $row["bath"] ?></p>
+                    </div>
+                </a>
+            </div>
         <?php
         }
-        mysqli_close($conn);
-        ?>
+    } else { ?>
+        <p>Nothing in your Wishlist</p>
+
+    <?php
+    }
+    mysqli_close($conn);
+    ?>
     </div>
 
 </body>

@@ -16,23 +16,9 @@ session_start();
 
 <body>
     <?php
-    $minprice = $_SESSION["minprice"];
-    $maxprice = $_SESSION["maxprice"];
-    $beds = $_SESSION["beds"];
-    $baths = $_SESSION["baths"];
+    include 'navbar.php'
     ?>
 
-    <div class='navbar'>
-        <h3>PropR</h3>
-        <div>Welcome <?= $_SESSION["firstname"] ?> &nbsp;(<?= ($_SESSION["type"]) ?>)</div>
-        <div><a href="about.php">About Us </a></div>
-        <div>
-            <a href='buyer.php?minprice=<?= $minprice ?>&maxprice=<?= $maxprice ?>&beds=<?= $beds ?>&baths=<?= $baths ?>&Submit=Search'>
-                Dashboard</a>
-        </div>
-        <div><a href="wishlist.php">My Wishlist </a></div>
-        <div><a href='logout.php'><i class="fa-solid fa-right-from-bracket"></i>Logout</a></div>
-    </div>
     <h2 class="center">Search</h2>
     <form id="search" method="get" action="">
 

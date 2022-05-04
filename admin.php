@@ -15,15 +15,8 @@ session_start();
 </head>
 
 <body>
-    <div class='navbar'>
-        <h3>PropR</h3>
-        <div>Welcome <?= $_SESSION["firstname"] ?> &nbsp;(<?= ($_SESSION["type"]) ?>)</div>
-        <div><a href="admin.php">Dashboard </a></div>
-        <div><a href="about.php">About Us </a></div>
-        <div><a href='logout.php'><i class="fa-solid fa-right-from-bracket"></i>Logout</a></div>
-    </div>
-
     <?php
+    include 'navbar.php';
     include 'db/connect_db.php';
 
     $sql = "SELECT  (SELECT COUNT(*) FROM User) AS total_users,
