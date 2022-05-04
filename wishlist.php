@@ -15,43 +15,44 @@
     <?php
     include 'navbar.php'
     ?>
-    
-    <?php
-    include 'db/connect_db.php';
 
-    $buyerId = $_SESSION["uid"];
+    <div id="prop-container">
+        <?php
+        include 'db/connect_db.php';
 
-    $sql = "SELECT Property.*, Wishlist.* FROM User 
+        $buyerId = $_SESSION["uid"];
+
+        $sql = "SELECT Property.*, Wishlist.* FROM User 
                 INNER JOIN Wishlist ON User.uid = Wishlist.buyerId 
                 INNER JOIN Property ON Wishlist.propId = Property.propId
                 WHERE Wishlist.buyerId='$buyerId'";
 
-    $result = mysqli_query($conn, $sql);
+        $result = mysqli_query($conn, $sql);
 
-    if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-    ?>
-            <div class="cards">
-                <!-- attach  propID through URL -->
-                <a href="property.php?propId=<?= $row['propId'] ?>&wishable=false">
-                    <img src="img/<?= $row["imgURL"] ?>" alt="property photo">
-                    <div class="cards-container">
-                        <p><span class="bold">City, State: </span><?= $row["city_state"] ?></p>
-                        <p><span class="bold">Price: </span>$ <?= number_format($row["price"]) ?></p>
-                        <p><span class="bold">Bedrooms: </span><?= $row["bed"] ?></p>
-                        <p><span class="bold">Bathrooms:</span> <?= $row["bath"] ?></p>
-                    </div>
-                </a>
-            </div>
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+        ?>
+                <div class="cards">
+                    <!-- attach  propID through URL -->
+                    <a href="property.php?propId=<?= $row['propId'] ?>&wishable=false">
+                        <img src="img/<?= $row["imgURL"] ?>" alt="property photo">
+                        <div class="cards-container">
+                            <p><span class="bold">City, State: </span><?= $row["city_state"] ?></p>
+                            <p><span class="bold">Price: </span>$ <?= number_format($row["price"]) ?></p>
+                            <p><span class="bold">Bedrooms: </span><?= $row["bed"] ?></p>
+                            <p><span class="bold">Bathrooms:</span> <?= $row["bath"] ?></p>
+                        </div>
+                    </a>
+                </div>
+            <?php
+            }
+        } else { ?>
+            <p>Nothing in your Wishlist</p>
+
         <?php
         }
-    } else { ?>
-        <p>Nothing in your Wishlist</p>
-
-    <?php
-    }
-    mysqli_close($conn);
-    ?>
+        mysqli_close($conn);
+        ?>
     </div>
 
 </body>
