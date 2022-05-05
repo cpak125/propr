@@ -16,7 +16,7 @@
     include 'navbar.php'
     ?>
 
-    <div id="prop-container">
+    <div class="prop-container">
         <?php
         include 'db/connect_db.php';
 

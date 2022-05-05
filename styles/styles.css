@@ -120,7 +120,7 @@ body {
 }
 
 
-#prop-container {
+.prop-container {
     display: flex;
     flex-direction: row;
     margin: 5%;
