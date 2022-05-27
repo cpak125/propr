@@ -24,34 +24,7 @@
         </form>
         <p>Don't have an account? <a class="linkify" href="register.php">Click Here to Register.</a></p>
     </div>
-    <br><br>
-    <div class="center">
-        <p>Test Log in Credentials</p>
-        <table id="sample" border="1" cellpadding="1">
-            <tr>
-                <th>User type</td>
-                <th>email</td>
-                <th>password</td>
-            </tr>
-            <tr>
-                <td>admin</td>
-                <td>Chris@admin.com</td>
-                <td>admin</td>
-            </tr>
-            <tr>
-                <td>seller</td>
-                <td>John@seller.com</td>
-                <td>seller</td>
-            </tr>
-            </tr>
-            <tr>
-                <td>buyer</td>
-                <td>Jane@buyer.com</td>
-                <td>buyer</td>
-            </tr>
 
-        </table>
-    </div>
 </body>
 
 </html>
