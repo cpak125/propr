@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Property</title>
     <link href="styles/styles.css" rel="stylesheet" type="text/css" />
+    <script src="https://app.simplefileupload.com/buckets/b6b266bdaff9a9edeb0045a673241c37.js"></script>
 </head>
 
 <body>

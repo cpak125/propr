@@ -109,7 +109,7 @@ session_start()
                     </div>
                     <div>
                         <label for="imgURL">Upload image</label>
-                        <input type="hidden" id="imgURL" class="simple-file-upload" name="imgURL" required>
+                        <input type="hidden" id="imgURL" class="simple-file-upload" name="imgURL" data-resize-width="200" required>
                     </div><br>
                 </div>
 
