@@ -89,7 +89,7 @@ session_start();
         ?>
                     <div class="cards">
                         <a href="property.php?propId=<?= $row['propId'] ?>">
-                            <img src="img/<?= $row["imgURL"] ?>" alt="property photo">
+                            <img src="$row[" imgURL"] ?>" alt="property photo">
                             <div class="cards-container">
                                 <p><span class="bold">City, State: </span><?= $row["city_state"] ?></p>
                                 <p><span class="bold">Price: </span>$ <?= number_format($row["price"]) ?></p>

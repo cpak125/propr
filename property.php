@@ -37,7 +37,7 @@ session_start()
     ?>
 
     <div class="card">
-        <img src="img/<?= $row["imgURL"] ?>" alt="property photo">
+        <img src="$row[" imgURL"] ?>" alt="property photo">
         <div class="card-container">
             <h3><span class="bold">Listing Price:</span> $<?= number_format($row["price"]) ?> </h3>
             <p><span class="bold">Address:</span><?= $row["street"] ?>, <?= $row["city_state"] ?>, <?= $row["zip"] ?> </p>

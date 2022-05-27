@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Property</title>
     <link href="styles/styles.css" rel="stylesheet" type="text/css" />
+    <script src="https://app.simplefileupload.com/buckets/b6b266bdaff9a9edeb0045a673241c37.js"></script>
 </head>
 
 <body>
@@ -27,31 +28,7 @@
         $squareFt = isset($_POST['squareFt']) ? str_replace(',', '', $_POST['squareFt']) : '';
         $bed = isset($_POST['bed']) ? $_POST['bed'] : '';
         $bath = isset($_POST['bath']) ? $_POST['bath'] : '';
-
-        if (isset($_FILES['imgURL']) && $_FILES['imgURL']['error'] === UPLOAD_ERR_OK) {
-            $imgName = $_FILES['imgURL']['name'];
-            $imgTemp = $_FILES['imgURL']['tmp_name'];
-            $imgNameSplit = explode(".", $imgName);
-            $imgExtension = strtolower(end($imgNameSplit));
-            $imgPath = "img/";
-            $allowedfileExtensions = array('jpg', 'jpeg', 'gif', 'png', 'webp');
-
-            if (!in_array($imgExtension, $allowedfileExtensions)) {
-                $errors[] = "Selected image format is not allowed";
-            }
-
-            if (move_uploaded_file($imgTemp, $imgPath . $imgName)) {
-                $imgURL = $imgName;
-            } else {
-                echo "<div class='error'><p>
-                        <ul>
-                            <li>Failed to upload your image</li>
-                        </ul>
-                        <input type='button' value='Go Back' onClick='history.back()'>
-                        </p></div>";
-                exit;
-            }
-        }
+        $imgURL = isset($_POST['imgURL']) ? $_POST['imgURL'] : '';
     }
 
     if ($city_state == "") {
