@@ -125,7 +125,7 @@ body {
     flex-direction: row;
     margin: 5%;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     gap: 2rem;
 }
 
@@ -166,7 +166,7 @@ body {
 .cards-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .cards-container p {
