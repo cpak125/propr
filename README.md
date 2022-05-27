@@ -8,7 +8,7 @@ A full-stack CRUD application that joins property sellers and buyers under a sin
 #### Sign-Up and Login
 
 #### Seller Portal
-<img src="https://i.imgur.com/yyNEY1u.png" width ="250" /> <img src="https://i.imgur.com/xHzBQb0.png" width ="250" /> <img src="https://i.imgur.com/nE0aYfX.png" width ="300" />
+<!-- <img src="" width ="250" /> <img src="" width ="250" /> <img src="" width ="300" /> -->
 
 #### Buyer Portal
 
