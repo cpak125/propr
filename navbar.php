@@ -24,7 +24,7 @@ if (isset($_SESSION["uid"])) { ?>
     <div class="navbar">
         <h3>PropR</h3>
         <div>Welcome <?= $firstname ?>&nbsp;(<?= ($type) ?>)</div>
-        <div><a href="about.php">About Us </a></div>
+        <div><a href="index.php">About Us </a></div>
         <?php if ($type == "buyer") { ?>
             <div>
                 <a href='buyer.php?minprice=<?= $minprice ?>&maxprice=<?= $maxprice ?>&beds=<?= $beds ?>&baths=<?= $baths ?>&Submit=Search'>
@@ -42,7 +42,7 @@ if (isset($_SESSION["uid"])) { ?>
 <?php } else { ?>
     <div class="navbar">
         <h3>PropR</h3>
-        <div><a href="about.php">About Us </a></div>
+        <div><a href="index.php">About Us </a></div>
         <div id="login-register">
             <a href="login.php"><button>Login</button></a>
             <a href="register.php"><button>Sign Up</button></a>

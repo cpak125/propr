@@ -27,7 +27,7 @@ session_start();
         <div class="navbar">
             <h3>PropR</h3>
             <div>Welcome <?= $_SESSION["firstname"] ?>&nbsp;(<?= ($_SESSION["type"]) ?>)</div>
-            <div><a href="about.php">About Us </a></div>
+            <div><a href="indx.php">About Us </a></div>
             <?php if ($_SESSION["type"] == "buyer") { ?>
                 <div>
                     <a href='buyer.php?minprice=<?= $minprice ?>&maxprice=<?= $maxprice ?>&beds=<?= $beds ?>&baths=<?= $baths ?>&Submit=Search'>
@@ -45,7 +45,7 @@ session_start();
     <?php } else { ?>
         <div class="navbar">
             <h3>PropR</h3>
-            <div><a href="about.php">About Us </a></div>
+            <div><a href="index.php">About Us </a></div>
             <div id="login-register">
                 <a href="login.php"><button>Login</button></a>
                 <a href="register.php"><button>Sign Up</button></a>

@@ -13,7 +13,7 @@
 <body>
     <div class='navbar'>
         <h3>PropR</h3>
-        <div><a href="about.php">About Us </a></div>
+        <div><a href="index.php">About Us </a></div>
     </div>
 
     <div>
