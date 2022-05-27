@@ -125,7 +125,7 @@ body {
     flex-direction: row;
     margin: 5%;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 2rem;
 }
 
@@ -166,7 +166,7 @@ body {
 .cards-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .cards-container p {
