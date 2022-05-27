@@ -12,6 +12,7 @@ session_start()
     <title>Property Details</title>
     <link href="styles/styles.css" rel="stylesheet" type="text/css" />
     <link href="styles/all.css" rel="stylesheet" type="text/css" />
+    <script src="https://app.simplefileupload.com/buckets/b6b266bdaff9a9edeb0045a673241c37.js"></script>
 </head>
 
 <body>
@@ -108,7 +109,7 @@ session_start()
                     </div>
                     <div>
                         <label for="imgURL">Upload image</label>
-                        <input type="file" id="imgURL" name="imgURL">
+                        <input type="hidden" id="imgURL" class="simple-file-upload" name="imgURL" required>
                     </div><br>
                 </div>
 
