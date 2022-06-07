@@ -7,14 +7,14 @@ A full-stack CRUD application that joins property sellers and buyers under a sin
 <img src="https://i.imgur.com/UhIEgqQ.png" width ="500" />
 
 ### Sign-Up and Login
-<img src="https://i.imgur.com/ScnFnWW.png" width ="500" /> <img src="https://i.imgur.com/DR6Yplu.png" width ="500" />
+<img src="https://i.imgur.com/ScnFnWW.png" width ="400" /> <img src="https://i.imgur.com/DR6Yplu.png" width ="400" />
 
 ### Seller Portal
-<img src="https://i.imgur.com/u5G9ouz.png" width ="500" /> <img src="https://i.imgur.com/aywiOEx.png" width ="500" /> <img src="https://i.imgur.com/cTj8GVA.png" width ="500" /> <img src="https://i.imgur.com/1OMVAU6.png" width ="400" />
+<img src="https://i.imgur.com/u5G9ouz.png" width ="400" /> <img src="https://i.imgur.com/aywiOEx.png" width ="400" /> <img src="https://i.imgur.com/cTj8GVA.png" width ="400" /> <img src="https://i.imgur.com/1OMVAU6.png" width ="400" />
 
 ### Buyer Portal
-<img src="https://i.imgur.com/NabwyYy.png" width ="500" /> <img src="https://i.imgur.com/c3tXpK6.png" width ="500" /> <img src="https://i.imgur.com/op8WZY6.png" width ="500" /> <img src="https://i.imgur.com/lTTF69n.png" width ="500" />
-500
+<img src="https://i.imgur.com/NabwyYy.png" width ="400" /> <img src="https://i.imgur.com/c3tXpK6.png" width ="400" /> <img src="https://i.imgur.com/op8WZY6.png" width ="400" /> <img src="https://i.imgur.com/lTTF69n.png" width ="400" />
+
 ### Admin Portal
 <img src="https://i.imgur.com/qhZSNkp.png" width ="500" />
 
